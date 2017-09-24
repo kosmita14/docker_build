@@ -1,0 +1,216 @@
+# HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 0
+go_gc_duration_seconds{quantile="0.25"} 0
+go_gc_duration_seconds{quantile="0.5"} 0
+go_gc_duration_seconds{quantile="0.75"} 0
+go_gc_duration_seconds{quantile="1"} 0
+go_gc_duration_seconds_sum 0
+go_gc_duration_seconds_count 0
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 14
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 671584
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 671584
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 2515
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 109
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 137216
+# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
+# TYPE go_memstats_heap_alloc_bytes gauge
+go_memstats_heap_alloc_bytes 671584
+# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
+# TYPE go_memstats_heap_idle_bytes gauge
+go_memstats_heap_idle_bytes 622592
+# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
+# TYPE go_memstats_heap_inuse_bytes gauge
+go_memstats_heap_inuse_bytes 1.14688e+06
+# HELP go_memstats_heap_objects Number of allocated objects.
+# TYPE go_memstats_heap_objects gauge
+go_memstats_heap_objects 5719
+# HELP go_memstats_heap_released_bytes_total Total number of heap bytes released to OS.
+# TYPE go_memstats_heap_released_bytes_total counter
+go_memstats_heap_released_bytes_total 0
+# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
+# TYPE go_memstats_heap_sys_bytes gauge
+go_memstats_heap_sys_bytes 1.769472e+06
+# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
+# TYPE go_memstats_last_gc_time_seconds gauge
+go_memstats_last_gc_time_seconds 0
+# HELP go_memstats_lookups_total Total number of pointer lookups.
+# TYPE go_memstats_lookups_total counter
+go_memstats_lookups_total 9
+# HELP go_memstats_mallocs_total Total number of mallocs.
+# TYPE go_memstats_mallocs_total counter
+go_memstats_mallocs_total 5828
+# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
+# TYPE go_memstats_mcache_inuse_bytes gauge
+go_memstats_mcache_inuse_bytes 4800
+# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
+# TYPE go_memstats_mcache_sys_bytes gauge
+go_memstats_mcache_sys_bytes 16384
+# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
+# TYPE go_memstats_mspan_inuse_bytes gauge
+go_memstats_mspan_inuse_bytes 16872
+# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
+# TYPE go_memstats_mspan_sys_bytes gauge
+go_memstats_mspan_sys_bytes 32768
+# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
+# TYPE go_memstats_next_gc_bytes gauge
+go_memstats_next_gc_bytes 4.473924e+06
+# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
+# TYPE go_memstats_other_sys_bytes gauge
+go_memstats_other_sys_bytes 798253
+# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
+# TYPE go_memstats_stack_inuse_bytes gauge
+go_memstats_stack_inuse_bytes 327680
+# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
+# TYPE go_memstats_stack_sys_bytes gauge
+go_memstats_stack_sys_bytes 327680
+# HELP go_memstats_sys_bytes Number of bytes obtained by system. Sum of all system allocations.
+# TYPE go_memstats_sys_bytes gauge
+go_memstats_sys_bytes 3.084288e+06
+# HELP http_request_duration_microseconds The HTTP request latencies in microseconds.
+# TYPE http_request_duration_microseconds summary
+http_request_duration_microseconds{handler="prometheus",quantile="0.5"} NaN
+http_request_duration_microseconds{handler="prometheus",quantile="0.9"} NaN
+http_request_duration_microseconds{handler="prometheus",quantile="0.99"} NaN
+http_request_duration_microseconds_sum{handler="prometheus"} 0
+http_request_duration_microseconds_count{handler="prometheus"} 0
+# HELP http_request_size_bytes The HTTP request sizes in bytes.
+# TYPE http_request_size_bytes summary
+http_request_size_bytes{handler="prometheus",quantile="0.5"} NaN
+http_request_size_bytes{handler="prometheus",quantile="0.9"} NaN
+http_request_size_bytes{handler="prometheus",quantile="0.99"} NaN
+http_request_size_bytes_sum{handler="prometheus"} 0
+http_request_size_bytes_count{handler="prometheus"} 0
+# HELP http_response_size_bytes The HTTP response sizes in bytes.
+# TYPE http_response_size_bytes summary
+http_response_size_bytes{handler="prometheus",quantile="0.5"} NaN
+http_response_size_bytes{handler="prometheus",quantile="0.9"} NaN
+http_response_size_bytes{handler="prometheus",quantile="0.99"} NaN
+http_response_size_bytes_sum{handler="prometheus"} 0
+http_response_size_bytes_count{handler="prometheus"} 0
+# HELP logstash_exporter_build_info A metric with a constant '1' value labeled by version, revision, branch, and goversion from which logstash_exporter was built.
+# TYPE logstash_exporter_build_info gauge
+logstash_exporter_build_info{branch="",goversion="go1.8.3",revision="",version=""} 1
+# HELP logstash_exporter_scrape_duration_seconds logstash_exporter: Duration of a scrape job.
+# TYPE logstash_exporter_scrape_duration_seconds summary
+logstash_exporter_scrape_duration_seconds{collector="node",result="success",quantile="0.5"} 0.011572295
+logstash_exporter_scrape_duration_seconds{collector="node",result="success",quantile="0.9"} 0.011572295
+logstash_exporter_scrape_duration_seconds{collector="node",result="success",quantile="0.99"} 0.011572295
+logstash_exporter_scrape_duration_seconds_sum{collector="node",result="success"} 0.011572295
+logstash_exporter_scrape_duration_seconds_count{collector="node",result="success"} 1
+# HELP logstash_node_gc_collection_duration_seconds_total gc_collection_duration_seconds_total
+# TYPE logstash_node_gc_collection_duration_seconds_total counter
+logstash_node_gc_collection_duration_seconds_total{collector="old"} 96
+logstash_node_gc_collection_duration_seconds_total{collector="young"} 2114
+# HELP logstash_node_gc_collection_total gc_collection_total
+# TYPE logstash_node_gc_collection_total gauge
+logstash_node_gc_collection_total{collector="old"} 2
+logstash_node_gc_collection_total{collector="young"} 246
+# HELP logstash_node_jvm_threads_count jvm_threads_count
+# TYPE logstash_node_jvm_threads_count gauge
+logstash_node_jvm_threads_count 34
+# HELP logstash_node_jvm_threads_peak_count jvm_threads_peak_count
+# TYPE logstash_node_jvm_threads_peak_count gauge
+logstash_node_jvm_threads_peak_count 37
+# HELP logstash_node_mem_heap_committed_bytes mem_heap_committed_bytes
+# TYPE logstash_node_mem_heap_committed_bytes gauge
+logstash_node_mem_heap_committed_bytes 2.5952256e+08
+# HELP logstash_node_mem_heap_max_bytes mem_heap_max_bytes
+# TYPE logstash_node_mem_heap_max_bytes gauge
+logstash_node_mem_heap_max_bytes 1.038876672e+09
+# HELP logstash_node_mem_heap_used_bytes mem_heap_used_bytes
+# TYPE logstash_node_mem_heap_used_bytes gauge
+logstash_node_mem_heap_used_bytes 6.636736e+07
+# HELP logstash_node_mem_nonheap_committed_bytes mem_nonheap_committed_bytes
+# TYPE logstash_node_mem_nonheap_committed_bytes gauge
+logstash_node_mem_nonheap_committed_bytes 1.11509504e+08
+# HELP logstash_node_mem_nonheap_used_bytes mem_nonheap_used_bytes
+# TYPE logstash_node_mem_nonheap_used_bytes gauge
+logstash_node_mem_nonheap_used_bytes 1.04302952e+08
+# HELP logstash_node_mem_pool_committed_bytes mem_pool_committed_bytes
+# TYPE logstash_node_mem_pool_committed_bytes gauge
+logstash_node_mem_pool_committed_bytes{pool="old"} 1.78978816e+08
+logstash_node_mem_pool_committed_bytes{pool="survivor"} 8.912896e+06
+logstash_node_mem_pool_committed_bytes{pool="young"} 7.1630848e+07
+# HELP logstash_node_mem_pool_max_bytes mem_pool_max_bytes
+# TYPE logstash_node_mem_pool_max_bytes gauge
+logstash_node_mem_pool_max_bytes{pool="old"} 7.2482816e+08
+logstash_node_mem_pool_max_bytes{pool="survivor"} 3.4865152e+07
+logstash_node_mem_pool_max_bytes{pool="young"} 2.7918336e+08
+# HELP logstash_node_mem_pool_peak_max_bytes mem_pool_peak_max_bytes
+# TYPE logstash_node_mem_pool_peak_max_bytes gauge
+logstash_node_mem_pool_peak_max_bytes{pool="old"} 7.2482816e+08
+logstash_node_mem_pool_peak_max_bytes{pool="survivor"} 7.2482816e+08
+logstash_node_mem_pool_peak_max_bytes{pool="young"} 7.2482816e+08
+# HELP logstash_node_mem_pool_peak_used_bytes mem_pool_peak_used_bytes
+# TYPE logstash_node_mem_pool_peak_used_bytes gauge
+logstash_node_mem_pool_peak_used_bytes{pool="old"} 1.0972976e+08
+logstash_node_mem_pool_peak_used_bytes{pool="survivor"} 1.0972976e+08
+logstash_node_mem_pool_peak_used_bytes{pool="young"} 1.0972976e+08
+# HELP logstash_node_mem_pool_used_bytes mem_pool_used_bytes
+# TYPE logstash_node_mem_pool_used_bytes gauge
+logstash_node_mem_pool_used_bytes{pool="old"} 6.4717736e+07
+logstash_node_mem_pool_used_bytes{pool="survivor"} 185256
+logstash_node_mem_pool_used_bytes{pool="young"} 1.464368e+06
+# HELP logstash_node_pipeline_duration_seconds_total pipeline_duration_seconds_total
+# TYPE logstash_node_pipeline_duration_seconds_total counter
+logstash_node_pipeline_duration_seconds_total 17
+# HELP logstash_node_pipeline_events_filtered_total pipeline_events_filtered_total
+# TYPE logstash_node_pipeline_events_filtered_total counter
+logstash_node_pipeline_events_filtered_total 6255
+# HELP logstash_node_pipeline_events_in_total pipeline_events_in_total
+# TYPE logstash_node_pipeline_events_in_total counter
+logstash_node_pipeline_events_in_total 6255
+# HELP logstash_node_pipeline_events_out_total pipeline_events_out_total
+# TYPE logstash_node_pipeline_events_out_total counter
+logstash_node_pipeline_events_out_total 6255
+# HELP logstash_node_plugin_events_in_total plugin_events_in
+# TYPE logstash_node_plugin_events_in_total counter
+logstash_node_plugin_events_in_total{plugin="elasticsearch",plugin_id="86f5cb224bfa8810f437e621de6d8580ad6d322d-2",plugin_type="output"} 6255
+logstash_node_plugin_events_in_total{plugin="rabbitmq",plugin_id="86f5cb224bfa8810f437e621de6d8580ad6d322d-1",plugin_type="input"} 0
+# HELP logstash_node_plugin_events_out_total plugin_events_out
+# TYPE logstash_node_plugin_events_out_total counter
+logstash_node_plugin_events_out_total{plugin="elasticsearch",plugin_id="86f5cb224bfa8810f437e621de6d8580ad6d322d-2",plugin_type="output"} 6255
+logstash_node_plugin_events_out_total{plugin="rabbitmq",plugin_id="86f5cb224bfa8810f437e621de6d8580ad6d322d-1",plugin_type="input"} 6255
+# HELP logstash_node_process_cpu_total_seconds_total process_cpu_total_seconds_total
+# TYPE logstash_node_process_cpu_total_seconds_total counter
+logstash_node_process_cpu_total_seconds_total 1175
+# HELP logstash_node_process_max_filedescriptors process_max_filedescriptors
+# TYPE logstash_node_process_max_filedescriptors gauge
+logstash_node_process_max_filedescriptors 1.048576e+06
+# HELP logstash_node_process_mem_total_virtual_bytes process_mem_total_virtual_bytes
+# TYPE logstash_node_process_mem_total_virtual_bytes gauge
+logstash_node_process_mem_total_virtual_bytes 4.813078528e+09
+# HELP logstash_node_process_open_filedescriptors process_open_filedescriptors
+# TYPE logstash_node_process_open_filedescriptors gauge
+logstash_node_process_open_filedescriptors 70
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 0.04
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1.048576e+06
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 8
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 6.766592e+06
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.50434604934e+09
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 1.16727808e+08
