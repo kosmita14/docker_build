@@ -1,0 +1,11 @@
+version: '3'
+services:
+  some-logstash:
+    build: .
+    network_mode: "host"
+    ports:
+     - "9600:9600"
+
+
+
+#docker run -d --net=host -p 9600:9600 --name some-logstash mylogstash
