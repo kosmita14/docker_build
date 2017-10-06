@@ -1,0 +1,27 @@
+version: '3'
+services:
+    myrabbit:
+        build: .
+        network_mode: "host"
+        hostname: "localhost"
+#        environment:
+#           RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+#           RABBITMQ_DEFAULT_USER: "rabbitmq"
+#           RABBITMQ_DEFAULT_PASS: "rabbitmq"
+#           RABBITMQ_DEFAULT_VHOST: "/"
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+#        labels:
+#            NAME: "some-rabbit"
+        volumes:
+            - "/media/pi/ext250/rabbitmq_data:/var/lib/rabbitmq"
+#volumes:
+#  rabbitmq_data:
+#    external:
+#        name: "/media/pi/ext250/rabbitmq_data"
+
+
+
+#docker run -d --net=host -p 15672:15672 -p 5672:5672 --name some-rabbit --hostname localhost -v /media/pi/ext250/rabbitmq_data:/var/lib/rabbitmq myrabbitmq
+
