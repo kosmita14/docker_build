@@ -1,0 +1,19 @@
+version: '3'
+services:
+    myprometheus:
+        build: .
+        network_mode: "host"
+#        environment:
+#           RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+#           RABBITMQ_DEFAULT_USER: "rabbitmq"
+#           RABBITMQ_DEFAULT_PASS: "rabbitmq"
+#           RABBITMQ_DEFAULT_VHOST: "/"
+        ports:
+            - "9090:9090"
+
+#        volumes:
+#            - "/media/pi/ext250/rabbitmq_data:/var/lib/rabbitmq"
+
+
+
+#docker run -d -p 9090:9090 --name some-prometheus --net=host myprometheus
