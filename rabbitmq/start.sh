@@ -1,4 +1,7 @@
 #!/bin/sh
 set -e
 
-docker run -d --net=host -p 15672:15672 -p 5672:5672 --name some-rabbit --hostname localhost -v /media/pi/ext250/rabbitmq_data:/var/lib/rabbitmq myrabbitmq
+#docker run -d -p 9600:9600 --name some-logstash --link some-rabbit --link some-elasticsearch:localhost mylogstash
+#docker run -d --net=host -p 9600:9600 --name some-logstash mylogstash
+docker-compose up -d --scale some-logstash=2
+
