@@ -28,6 +28,13 @@
     "durable": true,
     "auto_delete": false,
     "arguments": {}
+  },
+  {
+    "name": "fluentd2",
+    "vhost": "/",
+    "durable": true,
+    "auto_delete": false,
+    "arguments": {}
   }],
   "exchanges": [{
     "name": "my_exchange",
@@ -42,6 +49,14 @@
     "source": "my_exchange",
     "vhost": "/",
     "destination": "fluentd",
+    "destination_type": "queue",
+    "routing_key": "#",
+    "arguments": {}
+  },
+  {
+    "source": "my_exchange",
+    "vhost": "/",
+    "destination": "fluentd2",
     "destination_type": "queue",
     "routing_key": "#",
     "arguments": {}
