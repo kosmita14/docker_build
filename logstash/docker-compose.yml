@@ -1,11 +1,25 @@
 version: '3'
 services:
-  some-logstash:
-    build: .
+  logstash:
+    build: latest/
     network_mode: "host"
-    ports:
-     - "9600:9600"
+    volumes:
+        - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
+    environment:
+        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+#    ports:
+#     - "9600:9600"
+
+  logstash_alpine:
+    build: alpine/
+    network_mode: "host"
+    volumes:
+        - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
+    environment:
+        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+#    ports:
+#     - "9600:9600"
 
 
-
+#COPY ../logstash.conf /etc/logstash/conf.d/
 #docker run -d --net=host -p 9600:9600 --name some-logstash mylogstash
