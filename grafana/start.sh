@@ -1,5 +1,7 @@
 #!/bin/sh
 set -e
 
-#docker run -d --name some-portainer -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
-docker run -d --name=grafana -p 3000:3000 grafana/grafana
+#docker run -d -p 9600:9600 --name some-logstash --link some-rabbit --link some-elasticsearch:localhost mylogstash
+#docker run -d --net=host -p 9600:9600 --name some-logstash mylogstash
+docker-compose up -d --scale logstash=2 --scale logstash_alpine=2 --remove-orphans
+
