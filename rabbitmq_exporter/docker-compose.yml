@@ -1,0 +1,20 @@
+version: '3'
+services:
+  rabbitmq_exporter:
+    image: kbudde/rabbitmq-exporter
+    network_mode: "host"
+    environment:
+#        RABBIT_URL: "http://localhost:15672",
+#        RABBIT_USER: "guest",
+#        RABBIT_PASSWORD: "guest",
+        PUBLISH_PORT: "9099"
+#        OUTPUT_FORMAT: "TTY", //change to JSON if needed
+#        LOG_LEVEL: "info", // can be "debug", "info", "warning", "error", "fatal", or "panic"
+#        CAFILE: "ca.pem", // default is ca.pem. If file does not exist it will be ignored.
+#        SKIPVERIFY: false or 0, true or 1 // will skip hostname/certificate check at all
+#        INCLUDE_QUEUES: ".*", // regex, matching queue names are exported
+#        SKIP_QUEUES: "^$", // regex, matching queue names are not exported (useful for short-lived rpc queues). First performed INCLUDE, after SKIP
+    ports:
+    - "9099:9099"
+    
+    
