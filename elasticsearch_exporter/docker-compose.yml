@@ -1,0 +1,12 @@
+version: '3'
+services:
+  elasticsearch_exporter:
+    image: justwatch/elasticsearch_exporter
+    network_mode: "host"
+#    environment:
+#        RABBIT_URL: "http://localhost:15672",
+    ports:
+    - "9108:9108"
+    command:
+     - '-es.uri=http://localhost:9200'
+    restart: always
