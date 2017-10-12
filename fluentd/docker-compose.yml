@@ -1,0 +1,21 @@
+version: '3'
+services:
+    myfluentd:
+        build: .
+        network_mode: "host"
+#        hostname: "localhost"
+#        environment:
+#           RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+#           RABBITMQ_DEFAULT_USER: "rabbitmq"
+#           RABBITMQ_DEFAULT_PASS: "rabbitmq"
+#           RABBITMQ_DEFAULT_VHOST: "/"
+        ports:
+            - "24224:24224"
+            - "24224:24224/udp"
+        volumes:
+            - "/media/pi/ext250/fluentd_data:/fluentd/log myfluentd"
+
+#docker run -d --net=host --name some-fluentd -p 24224:24224 -p 24224:24224/udp -v /media/pi/ext250/fluentd_data:/fluentd/log myfluentd
+
+
+

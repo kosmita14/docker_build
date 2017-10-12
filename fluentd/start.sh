@@ -1,10 +1,7 @@
 #!/bin/sh
 set -e
-#--log-opt fluentd-async-connect=true
-#--log-driver=fluentd --log-opt tag=docker.fluentd
 
-#docker run --rm -d --name some-fluentd -p 24224:24224 -p 24224:24224/udp --link some-elasticsearch:localhost --link some-rabbit -v /media/pi/ext250/fluentd_data:/fluentd/log --log-driver=fluentd --log-opt tag=docker.fluentd --log-opt fluentd-async-connect=true myfluentd
-#docker run -d --name some-fluentd -p 24224:24224 -p 24224:24224/udp --link some-rabbit -v /media/pi/ext250/fluentd_data:/fluentd/log myfluentd
-
-docker run -d --net=host --name some-fluentd -p 24224:24224 -p 24224:24224/udp -v /media/pi/ext250/fluentd_data:/fluentd/log myfluentd
+#docker run -d -p 9600:9600 --name some-logstash --link some-rabbit --link some-elasticsearch:localhost mylogstash
+#docker run -d --net=host -p 9600:9600 --name some-logstash mylogstash
+docker-compose up -d --scale some-logstash=2
 
