@@ -1,0 +1,24 @@
+version: '3'
+services:
+    testfluentd:
+        build: fluentd/
+        network_mode: "host"
+        logging:
+            driver: "json-file"
+#        hostname: "localhost"
+#        environment:
+#           RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+#           RABBITMQ_DEFAULT_USER: "rabbitmq"
+#           RABBITMQ_DEFAULT_PASS: "rabbitmq"
+#           RABBITMQ_DEFAULT_VHOST: "/"
+#        ports:
+#            - "24224:24224"
+#            - "24224:24224/udp"
+        volumes:
+            - "/home/pi/Downloads/r24_stdout.log:/log/input_file.log"
+            - "./fluentd/fluent.conf:/fluentd/etc/fluent.conf"
+
+#docker run -d --net=host --name some-fluentd -p 24224:24224 -p 24224:24224/udp -v /media/pi/ext250/fluentd_data:/fluentd/log myfluentd
+
+
+

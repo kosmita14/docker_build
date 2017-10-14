@@ -1,0 +1,63 @@
+<source>
+  @type  forward
+  @id    input1
+  @label @mainstream
+  port  24224
+</source>
+
+<filter **>
+  @type stdout
+</filter>
+
+<label @mainstream>
+
+#  <match docker.**>
+#    @type file
+#    @id   output_docker1
+#    path         /fluentd/log/docker.*.log
+#    symlink_path /fluentd/log/docker.log
+#    append       true
+#    time_slice_format %Y%m%d
+#    time_slice_wait   1m
+#    time_format       %Y%m%dT%H%M%S%z
+#  </match>
+#  <match docker.**>
+#    @type elasticsearch
+#    logstash_format true
+#    flush_interval 10s # for testing
+#  </match>
+
+<match **>
+  type amqp
+
+  # Set broker host and port
+  host localhost
+  port 5672
+
+  # Set user and password for authentication
+  user guest
+  password guest
+
+  # Configure amqp entities vhost, exchange id and type
+  vhost /
+  exchange my_exchange
+  exchange_type topic
+  exchange_durable true # optionally set exchange durability - default is true.
+  payload_only false # optional - default is false. if true, only the payload will be sent. if false, data format is { "key" => tag, "timestamp" => time, "payload" => record }.
+  content_type application/octet-stream # optional - default is application/octet-stream. some amqp consumers will expect application/json.
+  priority 0 # the priority for the message - requires bunny >= 1.1.6 and rabbitmq >= 3.5
+</match>
+
+#  <match **>
+#    @type file
+#    @id   output1
+#    path         /fluentd/log/data.*.log
+#    symlink_path /fluentd/log/data.log
+#    append       true
+#    time_slice_format %Y%m%d
+#    time_slice_wait   10m
+#    time_format       %Y%m%dT%H%M%S%z
+#  </match>
+
+</label>
+
