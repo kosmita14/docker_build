@@ -2,14 +2,17 @@ version: '3'
 
 services:
   kibana:
-    image: kibana
+#    image: kibana
+    image: docker.elastic.co/kibana/kibana:5.6.3
     network_mode: "host"
-    hostname: "kibana"
+#    hostname: "kibana"
 #    volumes:
 #      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 #       - /media/pi/ext250/elastic_data:/usr/share/elasticsearch/data 
     ports:
       - "5601:5601"
+#    logging:
+#        driver: "json-file"
     environment:
         ELASTICSEARCH_URL: "http://localhost:9200" 
 #        ES_JAVA_OPTS: "-Xmx256m -Xms256m"
