@@ -11,11 +11,12 @@ services:
 
     testlogstash:
         build: logstash/
+#        image: logstash
         network_mode: "host"
         logging:
             driver: "json-file"
         volumes:
-            - ./logstash/logstash.conf:/etc/logstash/conf.d/logstash.conf
+            - ./logstash/config2:/usr/share/logstash/config2
         environment:
             LS_JAVA_OPTS: "-Xmx256m -Xms256m"
 

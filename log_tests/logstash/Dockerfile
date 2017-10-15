@@ -1,5 +1,5 @@
-FROM logstash:latest
+FROM docker.elastic.co/logstash/logstash:5.6.3
+RUN rm -f /usr/share/logstash/pipeline/logstash.conf
+ADD pipeline/ /usr/share/logstash/pipeline/
+ADD config/ /usr/share/logstash/config/
 
-#COPY ../logstash.conf /etc/logstash/conf.d/
-
-CMD ["-f", "/etc/logstash/conf.d/logstash.conf"]
