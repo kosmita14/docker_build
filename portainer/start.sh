@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
-#docker run -d --rm --name some-elasticsearch -v /media/pi/ext250/elastic_data:/usr/share/elasticsearch/data -p 9200:9200 -p 9300:9300 --log-driver=fluentd --log-opt tag=docker.elasticsearch elasticsearch
-docker run -d --name some-portainer -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+#docker run -d -p 9600:9600 --name some-logstash --link some-rabbit --link some-elasticsearch:localhost mylogstash
+#docker run -d --net=host -p 9600:9600 --name some-logstash mylogstash
+docker-compose up -d --scale logstash=2 --scale logstash_alpine=2 --remove-orphans
 
