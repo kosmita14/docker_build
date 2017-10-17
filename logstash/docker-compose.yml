@@ -3,20 +3,20 @@ services:
   logstash:
     build: latest/
     network_mode: "host"
-    volumes:
-        - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
+ #   volumes:
+ #       - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
     environment:
         LS_JAVA_OPTS: "-Xmx256m -Xms256m"
 #    ports:
 #     - "9600:9600"
 
-  logstash_alpine:
-    build: alpine/
-    network_mode: "host"
-    volumes:
-        - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
-    environment:
-        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+#  logstash_alpine:
+#    build: alpine/
+#    network_mode: "host"
+#    volumes:
+#        - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
+#    environment:
+#        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
 #    ports:
 #     - "9600:9600"
 
