@@ -11,6 +11,10 @@ services:
 #    links:
 #    - carbon
     network_mode: "host"
+    logging:
+        driver: "fluentd"
+        options:
+            tag: "docker.{{.Name}}"
     privileged: true
     ports:
     - "19999:19999"
