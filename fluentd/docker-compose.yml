@@ -3,6 +3,8 @@ services:
     myfluentd:
         build: .
         network_mode: "host"
+        logging:
+            driver: "json-file"
 #        hostname: "localhost"
 #        environment:
 #           RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
