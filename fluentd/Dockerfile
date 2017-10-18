@@ -1,4 +1,4 @@
-FROM fluent/fluentd:onbuild
+FROM fluent/fluentd:edge-onbuild
 
 # below RUN includes plugin as examples elasticsearch is not required
 # you may customize including plugins as you wish
@@ -6,7 +6,7 @@ FROM fluent/fluentd:onbuild
 RUN apk add --update --virtual .build-deps \
         sudo build-base ruby-dev \
  && sudo gem install \
-        fluent-plugin-elasticsearch fluent-plugin-amqp2 \
+        fluent-plugin-amqp2 fluent-plugin-concat \
  && sudo gem sources --clear-all \
  && apk del .build-deps \
  && rm -rf /var/cache/apk/* \
