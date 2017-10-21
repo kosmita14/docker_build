@@ -151,7 +151,7 @@ filebeat.prospectors:
   # For each file found under this path, a harvester is started.
   # Make sure not file is defined twice as this can lead to unexpected behaviour.
   paths:
-    - /var/log/*.log
+    - /mnt/logs/*.log
     #- c:\programdata\elasticsearch\logs\*
 
   # Configure the file encoding for reading files with international characters
@@ -439,7 +439,7 @@ filebeat.prospectors:
 # Multiple outputs may be used.
 
 #-------------------------- Elasticsearch output -------------------------------
-output.elasticsearch:
+#output.elasticsearch:
   # Boolean flag to enable or disable the output module.
   #enabled: true
 
@@ -447,15 +447,15 @@ output.elasticsearch:
   # Scheme and port can be left out and will be set to the default (http and 9200)
   # In case you specify and additional path, the scheme is required: http://localhost:9200/path
   # IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
-  hosts: ["localhost:9200"]
+#  hosts: ["localhost:9200"]
 
   # Set gzip compression level.
   #compression_level: 0
 
   # Optional protocol and basic auth credentials.
   #protocol: "https"
-  #username: "elastic"
-  #password: "changeme"
+#  username: "elastic"
+#  password: "changeme"
 
   # Dictionary of HTTP parameters to pass within the url with index operations.
   #parameters:
@@ -565,12 +565,12 @@ output.elasticsearch:
 
 
 #----------------------------- Logstash output ---------------------------------
-#output.logstash:
+output.logstash:
   # Boolean flag to enable or disable the output module.
-  #enabled: true
+  enabled: true
 
   # The Logstash hosts
-  #hosts: ["localhost:5044"]
+  hosts: ["localhost:5045"]
 
   # Number of workers per Logstash host.
   #worker: 1
@@ -961,6 +961,7 @@ output.elasticsearch:
 # There are three options for the log output: syslog, file, stderr.
 # Under Windows systems, the log files are per default sent to the file output,
 # under all other system per default to syslog.
+logging.to_stderr: true
 
 # Sets log level. The default log level is info.
 # Available log levels are: critical, error, warning, info, debug
@@ -985,8 +986,8 @@ output.elasticsearch:
 
 # Logging to rotating files files. Set logging.to_files to false to disable logging to
 # files.
-logging.to_files: true
-logging.files:
+#logging.to_files: true
+#logging.files:
   # Configure the path where the logs are written. The default is the logs directory
   # under the home path (the binary location).
   #path: /var/log/filebeat
