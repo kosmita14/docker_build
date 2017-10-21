@@ -570,16 +570,16 @@ output.logstash:
   enabled: true
 
   # The Logstash hosts
-  hosts: ["localhost:5045"]
+  hosts: ["localhost:5045", "localhost:5046"]
 
   # Number of workers per Logstash host.
-  #worker: 1
+  worker: 2
 
   # Set gzip compression level.
   #compression_level: 3
 
   # Optional load balance the events between the Logstash hosts
-  #loadbalance: true
+  loadbalance: true
 
   # Number of batches to be send asynchronously to logstash while processing
   # new batches.

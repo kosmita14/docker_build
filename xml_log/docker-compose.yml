@@ -1,18 +1,29 @@
 version: '3'
 
 services:
-  logstash:
+  romek:
     build: logstash/
     network_mode: "host"
     logging:
         driver: "json-file"
     environment:
         LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+        LS_BEAT_PORT: "5045"
+  atomek:
+    build: logstash/
+    network_mode: "host"
+    logging:
+        driver: "json-file"
+    environment:
+        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+        LS_BEAT_PORT: "5046"
+  
+
   esb:
     image: docker.elastic.co/beats/filebeat:5.6.3
     network_mode: "host"
     depends_on:
-        - logstash
+        - romek
     volumes:
         - ./logs/:/mnt/logs
         - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
