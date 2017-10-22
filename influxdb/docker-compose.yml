@@ -1,0 +1,15 @@
+version: '3'
+services:
+    statistics:
+#        build: .
+        image: "influxdb"
+        network_mode: "host"
+        logging:
+            driver: "json-file"
+        environment:
+           INFLUXDB_DB: "statistics"
+        ports:
+            - "8086:8086"
+#        volumes:
+#            - "/media/pi/ext250/rabbitmq_data:/var/lib/rabbitmq"
+
