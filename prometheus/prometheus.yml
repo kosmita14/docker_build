@@ -146,3 +146,26 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9108']
 
+
+
+  - job_name: 'fluentd-scrape'
+
+    metrics_path: '/metrics'
+    params:
+      # format: prometheus | prometheus_all_hosts
+      format: [prometheus]
+      #
+      # sources: as-collected | raw | average | sum | volume
+      # default is: average
+      #source: [as-collected]
+      #
+      # server name for this prometheus - the default is the client IP
+      # for netdata to uniquely identify it
+      #server: ['prometheus1']
+    honor_labels: true
+
+    static_configs:
+      - targets: ['localhost:24231']
+
+
+
