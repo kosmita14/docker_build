@@ -30,7 +30,14 @@
     "arguments": {}
   },
   {
-    "name": "fluentd2",
+    "name": "fluentd_monitor",
+    "vhost": "/",
+    "durable": true,
+    "auto_delete": false,
+    "arguments": {}
+  },
+  {
+    "name": "fluentd_alternate",
     "vhost": "/",
     "durable": true,
     "auto_delete": false,
@@ -43,6 +50,15 @@
     "durable": true,
     "auto_delete": false,
     "internal": false,
+    "arguments": {"alternate-exchange":"alternate_exchange"}
+  },
+  {
+    "name": "alternate_exchange",
+    "vhost": "/",
+    "type": "topic",
+    "durable": true,
+    "auto_delete": false,
+    "internal": false,
     "arguments": {}
   }],
   "bindings": [{
@@ -50,15 +66,23 @@
     "vhost": "/",
     "destination": "fluentd",
     "destination_type": "queue",
-    "routing_key": "#",
+    "routing_key": "docker.#",
     "arguments": {}
   },
   {
     "source": "my_exchange",
     "vhost": "/",
-    "destination": "fluentd2",
+    "destination": "fluentd_monitor",
+    "destination_type": "queue",
+    "routing_key": "monitor.#",
+    "arguments": {}
+  },
+  {
+    "source": "alternate_exchange",
+    "vhost": "/",
+    "destination": "fluentd_alternate",
     "destination_type": "queue",
     "routing_key": "#",
     "arguments": {}
-  }]
+  }  ]
 }
