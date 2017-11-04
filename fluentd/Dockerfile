@@ -6,7 +6,7 @@ FROM fluent/fluentd:edge-onbuild
 RUN apk add --update --virtual .build-deps \
         sudo build-base ruby-dev \
  && sudo gem install \
-        fluent-plugin-amqp2 fluent-plugin-concat \
+        fluent-plugin-amqp2 fluent-plugin-concat fluent-plugin-prometheus \
  && sudo gem sources --clear-all \
  && apk del .build-deps \
  && rm -rf /var/cache/apk/* \
