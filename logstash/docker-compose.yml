@@ -3,6 +3,8 @@ services:
   logstash:
     build: latest/
     network_mode: "host"
+#    logging:
+#        driver: "json-file"
  #   volumes:
  #       - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
     environment:
