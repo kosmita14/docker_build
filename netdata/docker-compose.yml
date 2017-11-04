@@ -1,30 +1,20 @@
 version: '3'
 services:
   netdata:
-#    build: ./netdata
     image: titpetric/netdata
+#    image: firehol/netdata
     volumes:
     - /proc:/host/proc:ro
     - /sys:/host/sys:ro
     - /var/run/docker.sock:/var/run/docker.sock
 #    - ./netdata/netdata.conf:/etc/netdata/netdata.conf
-#    links:
-#    - carbon
     network_mode: "host"
-    logging:
-        driver: "fluentd"
-        options:
-            tag: "docker.{{.Name}}"
+#    logging:
+#        driver: "fluentd"
+#        options:
+#            tag: "docker.{{.Name}}"
     privileged: true
     ports:
     - "19999:19999"
     cap_add:
     - SYS_PTRACE
-
-#ENV NETDATA_PORT=19999 SSMTP_TLS=YES SSMTP_SERVER=smtp.gmail.com SSMTP_PORT=587 SSMTP_HOSTNAME=localhost
-#EXPOSE $NETDATA_PORT
-
-#docker run -d --name some-netdata --net=host --cap-add SYS_PTRACE -v 
-#/proc:/host/proc:ro 
-#-v /sys:/host/sys:ro 
-#-v /var/run/docker.sock:/var/run/docker.sock -p 19999:19999 --privileged titpetric/netdata
