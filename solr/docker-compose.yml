@@ -1,0 +1,18 @@
+version: '3'
+services:
+  solr:
+    image: solr:latest
+    container_name: mysolr
+    network_mode: "host"
+    logging:
+        driver: "json-file"
+    ports:
+      - 8983:8983
+    volumes:
+    - /media/pi/ext250/business_events:/opt/solr/mydata
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - mycore
+
+
