@@ -1,0 +1,18 @@
+version: '3'
+services:
+  nodered:
+    image: nodered/node-red-docker
+    network_mode: "host"
+#    logging:
+#        driver: "json-file"
+    ports:
+       - 1880:1880
+    volumes:
+       - ./flows.json:/data/flows.json
+       - ./package.json:/data/package.json
+#       - /media/pi/ext250/nodered_data:/data 
+       - ./run_in_docker.sh:/usr/src/node-red/run_in_docker.sh
+    entrypoint: ["./run_in_docker.sh"]
+    environment:
+        TZ : "Europe/Warsaw"
+#docker run -d -p 1880:1880 --name some-nodered -v /media/pi/ext250/nodered_data:/data mynodered

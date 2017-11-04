@@ -1,0 +1,13 @@
+{
+    "name": "node-red-depend",
+    "version": "1.0.0",
+    "description": "A visual tool for wiring the Internet of Things",
+    "homepage": "http://nodered.org",
+    "license": "Apache 2.0",
+    "dependencies": {
+        "node-red-contrib-slack": "*",
+        "node-red-node-pushbullet": "*",
+        "node-red-node-encoding": "*",
+        "node-red-contrib-redis": "*"
+    }
+}
