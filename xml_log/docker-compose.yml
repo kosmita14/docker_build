@@ -7,7 +7,7 @@ services:
     logging:
         driver: "json-file"
     environment:
-        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+#        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
         LS_BEAT_PORT: "5045"
 #  atomek:
 #    build: logstash/

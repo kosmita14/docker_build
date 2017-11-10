@@ -144,6 +144,16 @@ filebeat.prospectors:
 
 #------------------------------ Log prospector --------------------------------
 - input_type: log
+  paths:
+    - /mnt/logs/server*.log
+  fields:
+    index_name: nib_server
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}'
+  multiline.negate: true
+  multiline.match: after
+
+
+- input_type: log
 
   # Paths that should be crawled and fetched. Glob based paths.
   # To fetch all ".log" files from a specific level of subdirectories
