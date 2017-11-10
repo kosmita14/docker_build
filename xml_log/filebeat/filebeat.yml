@@ -151,7 +151,7 @@ filebeat.prospectors:
   # For each file found under this path, a harvester is started.
   # Make sure not file is defined twice as this can lead to unexpected behaviour.
   paths:
-    - /mnt/logs/*.log
+    - /mnt/logs/esb*.log
     #- c:\programdata\elasticsearch\logs\*
 
   # Configure the file encoding for reading files with international characters
@@ -178,7 +178,8 @@ filebeat.prospectors:
 
   # Optional additional fields. These field can be freely picked
   # to add additional information to the crawled log files for filtering
-  #fields:
+  fields:
+    index_name: nib_esb
   #  level: debug
   #  review: 1
 
