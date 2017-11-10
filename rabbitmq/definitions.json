@@ -50,7 +50,7 @@
     "durable": true,
     "auto_delete": false,
     "internal": false,
-    "arguments": {"alternate-exchange":"alternate_exchange"}
+    "arguments": {}
   },
   {
     "name": "alternate_exchange",
