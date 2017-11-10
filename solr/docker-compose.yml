@@ -4,8 +4,8 @@ services:
     image: solr:latest
     container_name: mysolr
     network_mode: "host"
-    logging:
-        driver: "json-file"
+#    logging:
+#        driver: "json-file"
     ports:
       - 8983:8983
     volumes:

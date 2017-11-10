@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-docker-compose up --remove-orphans
+docker-compose up -d --remove-orphans
