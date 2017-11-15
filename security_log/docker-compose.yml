@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  adam:
+    build: security/
+    network_mode: "host"
+    logging:
+        driver: "json-file"
+    environment:
+        LS_BEAT_PORT: "5045"
