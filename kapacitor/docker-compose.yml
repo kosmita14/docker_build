@@ -1,0 +1,16 @@
+version: '3'
+services:
+    kapacitor:
+        image: "kapacitor"
+        container_name: "kapacitor"
+        network_mode: "host"
+        logging:
+            driver: "${LOGGING_DRIVER:-json-file}"
+#        environment:
+#            KAPACITOR_LOGGING_LEVEL: WARN
+        ports:
+            - "9092:9092"
+        volumes:
+            - "./kapacitor.conf:/etc/kapacitor/kapacitor.conf:ro"
+            - "/media/pi/ext250/kapacitor_data:/var/lib/kapacitor"
+
