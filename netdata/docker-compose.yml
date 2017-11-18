@@ -3,18 +3,17 @@ services:
   netdata:
     image: titpetric/netdata
 #    image: firehol/netdata
+    container_name: "netdata"
     volumes:
-    - /proc:/host/proc:ro
-    - /sys:/host/sys:ro
-    - /var/run/docker.sock:/var/run/docker.sock
-#    - ./netdata/netdata.conf:/etc/netdata/netdata.conf
+        - /proc:/host/proc:ro
+        - /sys:/host/sys:ro
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ./netdata.conf:/etc/netdata/netdata.conf
     network_mode: "host"
-#    logging:
-#        driver: "fluentd"
-#        options:
-#            tag: "docker.{{.Name}}"
+    logging:
+            driver: "${LOGGING_DRIVER:-json-file}"
     privileged: true
     ports:
-    - "19999:19999"
+        - "19999:19999"
     cap_add:
-    - SYS_PTRACE
+        - SYS_PTRACE
