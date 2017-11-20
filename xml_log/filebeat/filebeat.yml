@@ -145,6 +145,13 @@ filebeat.prospectors:
 #------------------------------ Log prospector --------------------------------
 - input_type: log
   paths:
+    - /mnt/logs/nginx*.log
+  fields:
+    index_name: nginx
+
+
+- input_type: log
+  paths:
     - /mnt/logs/server*.log
   fields:
     index_name: nib_server

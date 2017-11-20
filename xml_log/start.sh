@@ -1,7 +1,5 @@
 #!/bin/sh
 set -e
-
-docker-compose up --force-recreate --build
-
-#docker-compose up -d --remove-orphans
-
+LOGGING_DRIVER=fluentd
+export LOGGING_DRIVER
+docker-compose up -d 
