@@ -1,34 +1,12 @@
 version: '3'
 services:
-  latest:
+  portainer:
     image: portainer/portainer
-#    depends_on:
-#      - prometheus
+    container_name: "portainer"
+    logging:
+        driver: "${LOGGING_DRIVER:-json-file}"
     network_mode: "host"
     ports:
         - 9000:9000
     volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-
-#docker run -d --name some-portainer -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
-
-
-#  netdata:
-#    build: ./netdata
-#    image: titpetric/netdata
-#    volumes:
-#    - /proc:/host/proc:ro
-#    - /sys:/host/sys:ro
-#    - /var/run/docker.sock:/var/run/docker.sock
-#    - ./netdata/netdata.conf:/etc/netdata/netdata.conf
-#    links:
-#    - carbon
-#    network_mode: "host"
-#    privileged: true
-#    ports:
-#    - "19999:19999"
-#    cap_add:
-#    - SYS_PTRACE
-
-#/media/pi/ext250/graphana_data
-
