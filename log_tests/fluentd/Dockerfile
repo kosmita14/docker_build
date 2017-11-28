@@ -1,4 +1,4 @@
-FROM fluent/fluentd:onbuild
+FROM fluent/fluentd:edge-onbuild
 
 # below RUN includes plugin as examples elasticsearch is not required
 # you may customize including plugins as you wish
