@@ -6,7 +6,7 @@ services:
         logging:
             driver: "json-file"
         volumes:
-            - "/home/pi/Downloads/r24_stdout.log:/log/input_file.log"
+            - "./logs/r24_stdout.log:/log/input_file.log"
             - "./fluentd/fluent.conf:/fluentd/etc/fluent.conf"
 
     testlogstash:
