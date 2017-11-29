@@ -2,7 +2,6 @@ version: '3'
 
 services:
   kibana:
-#    image: kibana
     image: docker.elastic.co/kibana/kibana:6.0.0
     network_mode: "host"
 #    hostname: "kibana"
@@ -16,5 +15,3 @@ services:
     environment:
         ELASTICSEARCH_URL: "http://localhost:9200" 
 #        ES_JAVA_OPTS: "-Xmx256m -Xms256m"
-
-#docker run -p 5601:5601 --net host -e ELASTICSEARCH_URL=http://localhost:9200 --name some-kibana -d kibana

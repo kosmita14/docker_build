@@ -20,7 +20,7 @@ services:
   
 
   beat:
-#    image: docker.elastic.co/beats/metricbeat:6.0.0-rc1
+#    image: docker.elastic.co/beats/metricbeat:6.0.0
     build: beat/
     network_mode: "host"
 #    depends_on:
@@ -38,5 +38,3 @@ services:
 #    environment:
 #        ES_JAVA_OPTS: "-Xmx256m -Xms256m"
 
-#docker run --volume=/proc:/hostfs/proc:ro --volume=/sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro /
-#--volume=/:/hostfs:ro --net=host docker.elastic.co/beats/metricbeat
