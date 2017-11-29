@@ -3,19 +3,23 @@ services:
     testfluentd:
         build: fluentd/
         network_mode: "host"
+        container_name: "test_log_fluentd"
         logging:
-            driver: "json-file"
+            driver: "${LOGGING_DRIVER:-json-file}"
         volumes:
-            - "./logs/r24_stdout.log:/log/input_file.log"
+            - "./logs/:/log/"
             - "./fluentd/fluent.conf:/fluentd/etc/fluent.conf"
 
     testlogstash:
         build: logstash/
         network_mode: "host"
+        container_name: "test_log_logstash"
         logging:
-            driver: "json-file"
+            driver: "${LOGGING_DRIVER:-json-file}"
 #        volumes:
 #            - ./logstash/config:/usr/share/logstash/config
         environment:
             LS_JAVA_OPTS: "-Xmx256m -Xms256m"
 #            LS_LOG_FORMAT: json 
+
+
