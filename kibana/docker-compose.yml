@@ -2,8 +2,12 @@ version: '3'
 
 services:
   kibana:
-    image: docker.elastic.co/kibana/kibana:6.0.0
+    image: docker.elastic.co/kibana/kibana:6.0.1
+    container_name: "kibana"
     network_mode: "host"
+    logging:
+        driver: "${LOGGING_DRIVER:-json-file}"
+
 #    hostname: "kibana"
 #    volumes:
 #      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml

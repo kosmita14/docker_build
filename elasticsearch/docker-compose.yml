@@ -7,9 +7,10 @@ services:
     volumes:
 #      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
        - /media/pi/ext250/elastic_data:/usr/share/elasticsearch/data 
-#    logging:
-#        driver: "json-file"
+    container_name: "elastic"
     network_mode: "host"
+    logging:
+        driver: "${LOGGING_DRIVER:-json-file}"
     ports:
       - "9200:9200"
       - "9300:9300"

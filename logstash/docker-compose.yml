@@ -2,7 +2,10 @@ version: '3'
 services:
   logstash:
     build: latest/
+    container_name: "logstash"
     network_mode: "host"
+    logging:
+        driver: "${LOGGING_DRIVER:-json-file}"
 #    logging:
 #        driver: "json-file"
  #   volumes:
