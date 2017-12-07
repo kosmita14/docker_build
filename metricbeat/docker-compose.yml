@@ -20,7 +20,6 @@ services:
   
 
   beat:
-#    image: docker.elastic.co/beats/metricbeat:6.0.0
     build: beat/
     network_mode: "host"
 #    depends_on:
