@@ -3,7 +3,7 @@ services:
     myfluentd:
         build: .
         network_mode: "host"
-        container_name: "myfluentd"
+        container_name: "fluentd"
 #        logging:
 #            driver: "json-file"
 #        hostname: "localhost"

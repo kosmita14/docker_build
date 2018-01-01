@@ -1,6 +1,6 @@
 version: '3'
 services:
-  netdata:
+  mynetdata:
     image: titpetric/netdata
 #           firehol/netdata
     container_name: "netdata"
