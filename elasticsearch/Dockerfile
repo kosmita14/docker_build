@@ -1,4 +1,4 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:6.0.1
+FROM docker.elastic.co/elasticsearch/elasticsearch-oss:6.1.1
 
 RUN rm -f /usr/share/elasticsearch/config/elasticsearch.yml
 RUN rm -f /usr/share/elasticsearch/config/log4j2.properties
