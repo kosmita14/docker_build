@@ -583,12 +583,12 @@ filebeat.prospectors:
 
 
 #----------------------------- Logstash output ---------------------------------
-#output.logstash:
+output.logstash:
   # Boolean flag to enable or disable the output module.
-#  enabled: true
+  enabled: true
 
   # The Logstash hosts
-#  hosts: ["localhost:5045"]
+  hosts: ["localhost:5045"]
   #hosts: ["localhost:5045", "localhost:5046"]
 
   # Number of workers per Logstash host.
@@ -782,14 +782,14 @@ filebeat.prospectors:
   #ssl.curve_types: []
 
 #------------------------------- Redis output ----------------------------------
-output.redis:
+#output.redis:
   # Boolean flag to enable or disable the output module.
-  enabled: true
+  #enabled: true
 
   # The list of Redis servers to connect to. If load balancing is enabled, the
   # events are distributed to the servers in the list. If one server becomes
   # unreachable, the events are distributed to the reachable servers only.
-  hosts: ["localhost"]
+  #hosts: ["localhost:6379"]
 
   # The Redis port to use if hosts does not contain a port number. The default
   # is 6379.
