@@ -1,0 +1,16 @@
+version: '3'
+services:
+    redis:
+        image: "redis:latest"
+        container_name: "myredis"
+        network_mode: "host"
+        logging:
+            driver: "${LOGGING_DRIVER:-json-file}"
+#        environment:
+#           INFLUXDB_GRAPHITE_ENABLED: "true"
+#        ports:
+#            - "8094:8094"
+#            - "8092:8092/udp"
+#        volumes:
+#            - "./telegraf.conf:/etc/telegraf/telegraf.conf:ro"
+#            - "/var/run/docker.sock:/var/run/docker.sock"
