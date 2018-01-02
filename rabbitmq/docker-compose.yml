@@ -2,8 +2,10 @@ version: '3'
 services:
     myrabbit:
         build: .
+        container_name: "rabbitmq"
         network_mode: "host"
-        hostname: "localhost"
+        logging:
+            driver: "${LOGGING_DRIVER:-json-file}"
 #        environment:
 #           RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
 #           RABBITMQ_DEFAULT_USER: "rabbitmq"
