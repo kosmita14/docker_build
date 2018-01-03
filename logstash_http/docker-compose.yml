@@ -1,0 +1,13 @@
+version: '3'
+services:
+    logstash_http:
+        build: logstash/
+        network_mode: "host"
+        container_name: "logstash_http"
+        logging:
+            driver: "${LOGGING_DRIVER:-json-file}"
+#        volumes:
+#            - ./logstash/config:/usr/share/logstash/config
+        environment:
+            LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+#            LS_LOG_FORMAT: json 
