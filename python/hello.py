@@ -1,6 +1,8 @@
 import urllib.request
+import requests
 import json
 import time
+import datetime
 
 def pp_json(json_thing, dict=None, sort=True, indents=4):
     json_obj = ""
@@ -29,6 +31,52 @@ def pp_json(json_thing, dict=None, sort=True, indents=4):
                 print("ID doesn't exist")
     return None
 
+class MyJsonMetricsSessionClass:
+    average_duration = datetime.timedelta(0)
+    counter = 0
+    s = requests.Session()
+
+    def __init__(self, username, password):
+        self.s.auth = ( username, password)
+
+    def getStats(self, theurl):
+        r = self.s.get(theurl)
+        self.average_duration += r.elapsed
+        self.counter += 1
+        print("%s: Get url '%s' with status %s in %d" % (time.ctime(), theurl, r.status_code, r.elapsed.total_seconds()*1000))
+        if r.status_code != requests.codes.ok:
+            r.raise_for_status()
+
+        return r.json()
+    
+    def printAverage(self):
+        print(self.average_duration.total_seconds()*1000 / self.counter)
+        return None
+
+
+class MyJsonMetricsRequestsClass:
+    username = ""
+    password = ""
+    average_duration = datetime.timedelta(0)
+    counter = 0
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+    def getStats(self, theurl):
+        r = requests.get(theurl, auth=(self.username, self.password))
+        self.average_duration += r.elapsed
+        self.counter += 1
+        print("%s: Get url '%s' with status %s in %d" % (time.ctime(), theurl, r.status_code, r.elapsed.total_seconds()*1000))
+        if r.status_code != requests.codes.ok:
+            r.raise_for_status()
+
+        return r.json()
+    
+    def printAverage(self):
+        print(self.average_duration.total_seconds()*1000 / self.counter)
+        return None
+
 class MyJsonMetricsClass:
     def __init__(self, mainurl, username, password):
         passman = urllib.request.HTTPPasswordMgrWithDefaultRealm()
@@ -49,12 +97,24 @@ connection_dict = {"name":"channels"}
 
 
 myJsonMetrics = MyJsonMetricsClass('http://localhost:15672', 'guest', 'guest')
-#for i in range(10):
 pp_json(myJsonMetrics.getStats('http://localhost:15672/api/queues'), queues_dict)
 pp_json(myJsonMetrics.getStats('http://localhost:15672/api/exchanges'), exchange_dict)
 pp_json(myJsonMetrics.getStats('http://localhost:15672/api/consumers'))
 pp_json(myJsonMetrics.getStats('http://localhost:15672/api/connections'), connection_dict)
 
+print("-------------------------------------------")
 
-#    time.sleep(10)
+myJsonMetrics2 = MyJsonMetricsRequestsClass( 'guest', 'guest')
+pp_json(myJsonMetrics2.getStats('http://localhost:15672/api/queues'), queues_dict)
+pp_json(myJsonMetrics2.getStats('http://localhost:15672/api/exchanges'), exchange_dict)
+pp_json(myJsonMetrics2.getStats('http://localhost:15672/api/consumers'))
+pp_json(myJsonMetrics2.getStats('http://localhost:15672/api/connections'), connection_dict)
+
+print("-------------------------------------------")
+
+myJsonMetrics3 = MyJsonMetricsSessionClass('guest', 'guest');
+pp_json(myJsonMetrics3.getStats('http://localhost:15672/api/queues'), queues_dict)
+pp_json(myJsonMetrics3.getStats('http://localhost:15672/api/exchanges'), exchange_dict)
+pp_json(myJsonMetrics3.getStats('http://localhost:15672/api/consumers'))
+pp_json(myJsonMetrics3.getStats('http://localhost:15672/api/connections'), connection_dict)
 
