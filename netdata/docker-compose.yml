@@ -5,6 +5,8 @@ services:
 #           firehol/netdata
     container_name: "netdata"
     volumes:
+        - "/etc/timezone:/etc/timezone:ro"
+        - "/etc/localtime:/etc/localtime:ro"
         - /proc:/host/proc:ro
         - /sys:/host/sys:ro
         - /var/run/docker.sock:/var/run/docker.sock
