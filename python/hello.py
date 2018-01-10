@@ -43,7 +43,7 @@ class MyJsonMetricsSessionClass:
         r = self.s.get(theurl)
         self.average_duration += r.elapsed
         self.counter += 1
-        print("%s: Get url '%s' with status %s in %d" % (time.ctime(), theurl, r.status_code, r.elapsed.total_seconds()*1000))
+        print("%s: Get url '%s' with status %s in %.2f sec" % (time.ctime(), theurl, r.status_code, r.elapsed.total_seconds()*1000))
         if r.status_code != requests.codes.ok:
             r.raise_for_status()
 
@@ -67,7 +67,7 @@ class MyJsonMetricsRequestsClass:
         r = requests.get(theurl, auth=(self.username, self.password))
         self.average_duration += r.elapsed
         self.counter += 1
-        print("%s: Get url '%s' with status %s in %d" % (time.ctime(), theurl, r.status_code, r.elapsed.total_seconds()*1000))
+        print("%s: Get url '%s' with status %s in %.2f sec" % (time.ctime(), theurl, r.status_code, r.elapsed.total_seconds()*1000))
         if r.status_code != requests.codes.ok:
             r.raise_for_status()
 
