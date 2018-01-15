@@ -19,7 +19,7 @@ try:
     print("Redis '%s' on '%s'" % (j_info.get('redis_version'), j_info.get('os')))
     print('Connected!')
     print("Current length of 'gpwrss' hash is %d" % (conn.hlen('gpwrss')))
-    keytofind = "netto"
+    keytofind = "kruk"
     for news in conn.hscan_iter('gpwrss', match='*' + keytofind + '*'):
         print("{RED}key:{END} '%s'".format(**formatters) % news[0].decode('utf-8').replace(keytofind, '{BLUE}' + keytofind + '{END}').format(**formatters))
         r = json.loads(news[1].decode('utf-8'))
