@@ -1,30 +1,17 @@
 version: '3'
 services:
   logstash:
-    build: latest/
+    #build: latest/
+    image: docker.elastic.co/logstash/logstash-oss:6.1.2
     container_name: "logstash"
     network_mode: "host"
     logging:
         driver: "${LOGGING_DRIVER:-json-file}"
-#    logging:
-#        driver: "json-file"
- #   volumes:
- #       - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
-    environment:
-        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
-#    ports:
-#     - "9600:9600"
-
-#  logstash_alpine:
-#    build: alpine/
-#    network_mode: "host"
-#    volumes:
-#        - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
+    volumes:
+        - ./config:/usr/share/logstash/config
+        - ./pipeline:/usr/share/logstash/pipeline
 #    environment:
 #        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
 #    ports:
 #     - "9600:9600"
 
-
-#COPY ../logstash.conf /etc/logstash/conf.d/
-#docker run -d --net=host -p 9600:9600 --name some-logstash mylogstash
