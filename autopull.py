@@ -26,12 +26,16 @@ for file in glob.iglob("./**/docker-compose.yml", recursive=True): # generator, 
         if re.search('image:', line):
             image_name = re.sub(r"^.*image:[ \"]*([^ \"]+).*", r"\1", line)
             image_set.add(image_name.rstrip())
+            utf_line = "{GREEN}%s -> %s{END}".format(**formatters) % (file.strip(), image_name.strip())
+            print(utf_line, flush=True)
 
 for file in glob.iglob("./**/Dockerfile", recursive=True): # generator, search immediate subdirectories 
     for line in open(file, 'r'):
         if re.search('FROM', line):
            image_name = re.sub(r"^.*FROM[ \"]+([^ \"]+).*", r"\1", line)
            image_set.add(image_name.rstrip())
+           utf_line = "{GREEN}%s -> %s{END}".format(**formatters) % (file.strip(), image_name.strip())
+           print(utf_line, flush=True)
 
 for image in image_set:
     command = ('docker pull %s' % image).split()
