@@ -2,7 +2,7 @@ version: '3'
 services:
   logstash:
     #build: latest/
-    image: docker.elastic.co/logstash/logstash-oss:6.1.2
+    image: docker.elastic.co/logstash/logstash-oss:6.2.1
     container_name: "logstash"
     network_mode: "host"
     logging:

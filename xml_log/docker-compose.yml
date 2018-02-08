@@ -13,13 +13,13 @@ services:
  
 
   filebeat:
-    image: docker.elastic.co/beats/filebeat:6.1.2
+    image: docker.elastic.co/beats/filebeat:6.2.1
     container_name: "filebeat"
     network_mode: "host"
     logging:
         driver: "${LOGGING_DRIVER:-json-file}"  
     volumes:
-        - ./logs/:/mnt/logs
+        - /media/pi/ext250/logs/:/mnt/logs
         - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
 #       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml   
 #       - /media/pi/ext250/elastic_data:/usr/share/elasticsearch/data 
