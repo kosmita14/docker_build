@@ -2,7 +2,8 @@ version: '3'
 
 services:
   elasticsearch:
-    build: .
+#    build: .
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.1
 #    volumes:
 #      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 #       - /media/pi/ext250/elastic_data:/usr/share/elasticsearch/data 
