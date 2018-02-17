@@ -17,3 +17,47 @@ services:
             - "./influxdb.conf:/etc/influxdb/influxdb.conf:ro"
             - "/media/pi/ext250/influxdb_data:/var/lib/influxdb"
 
+
+    telegraf:
+        image: "telegraf"
+        container_name: "telegraf"
+        network_mode: "host"
+        logging:
+            driver: "${LOGGING_DRIVER:-json-file}"
+#        environment:
+#           INFLUXDB_GRAPHITE_ENABLED: "true"
+        ports:
+            - "8094:8094"
+            - "8092:8092/udp"
+        volumes:
+            - "./telegraf.conf:/etc/telegraf/telegraf.conf:ro"
+            - "/var/run/docker.sock:/var/run/docker.sock"
+
+
+    kapacitor:
+        image: "kapacitor"
+        container_name: "kapacitor"
+        network_mode: "host"
+        logging:
+            driver: "${LOGGING_DRIVER:-json-file}"
+#        environment:
+#            KAPACITOR_LOGGING_LEVEL: WARN
+        ports:
+            - "9092:9092"
+        volumes:
+            - "./kapacitor.conf:/etc/kapacitor/kapacitor.conf:ro"
+            - "/media/pi/ext250/kapacitor_data:/var/lib/kapacitor"
+
+    chronograf:
+        image: "chronograf"
+        container_name: "chronograf"
+        network_mode: "host"
+        logging:
+            driver: "${LOGGING_DRIVER:-json-file}"
+#        environment:
+#           INFLUXDB_DB: "statistics"
+#           INFLUXDB_GRAPHITE_ENABLED: "true"
+        ports:
+            - "8888:8888"
+        volumes:
+            - "/media/pi/ext250/chronograf_data:/var/lib/chronograf"
