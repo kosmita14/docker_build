@@ -2,7 +2,7 @@ filebeat.prospectors:
 
 - input_type: log
   paths:
-    - /mnt/logs/nfc*.log
+    - /mnt/logs/nfchce/*.log
   fields:
     index_name: nfc
   multiline.pattern: '^[0-9]{4}.[0-9]{2}.[0-9]{2}-[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}'
