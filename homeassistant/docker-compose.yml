@@ -1,0 +1,15 @@
+  version: '3'
+  services:
+    web:
+      image: homeassistant/home-assistant
+      logging:
+        driver: "${LOGGING_DRIVER:-json-file}"
+      volumes:
+         - ./config:/config
+         - /etc/localtime:/etc/localtime:ro
+      devices:
+#        - /dev/ttyUSB0:/dev/ttyUSB0
+#        - /dev/ttyUSB1:/dev/ttyUSB1
+        - /dev/ttyACM0:/dev/ttyACM0
+      restart: always
+      network_mode: host
