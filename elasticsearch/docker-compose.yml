@@ -3,7 +3,7 @@ version: '3'
 services:
   elasticsearch:
 #    build: .
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.1
 #    volumes:
 #      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 #       - /media/pi/ext250/elastic_data:/usr/share/elasticsearch/data 
@@ -17,11 +17,11 @@ services:
     environment:
 #        ES_JAVA_OPTS: "-Xmx256m -Xms256m"
         discovery.type: "single-node"
-        ELASTIC_PASSWORD: "changeme"
+#        ELASTIC_PASSWORD: "changeme"
 
 
   kibana:
-    image: docker.elastic.co/kibana/kibana-oss:6.2.1
+    image: docker.elastic.co/kibana/kibana:6.2.1
     container_name: "kibana"
     network_mode: "host"
     logging:

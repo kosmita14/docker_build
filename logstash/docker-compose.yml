@@ -2,7 +2,7 @@ version: '3'
 services:
   logstash:
     #build: latest/
-    image: docker.elastic.co/logstash/logstash-oss:6.2.1
+    image: docker.elastic.co/logstash/logstash:6.2.1
     container_name: "logstash"
     network_mode: "host"
     logging:
@@ -10,8 +10,14 @@ services:
     volumes:
         - ./config:/usr/share/logstash/config
         - ./pipeline:/usr/share/logstash/pipeline
-#    environment:
+    environment:
+        XPACK_MONITORING_ENABLED: "true"
+#        xpack_management_enabled: "true"
+#        xpack_management_elasticsearch_url: "http://localhost:9200/"
+#        xpack_management_logstash_poll_interval: "5s"
+#        xpack_management_elasticsearch_username: "elasticsearch"
+#        xpack_management_elasticsearch_password: "changeme"
+#        xpack_management_pipeline_id: "['nfc', 'docker_logs']"
 #        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
 #    ports:
 #     - "9600:9600"
-
