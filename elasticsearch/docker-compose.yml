@@ -25,7 +25,15 @@ services:
 #    ports:
 #     - "9600:9600"
 
-
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:6.2.2
+    container_name: "filebeat"
+    network_mode: "host"
+    logging:
+        driver: "${LOGGING_DRIVER:-json-file}"  
+    volumes:
+        - /media/pi/ext250/logs/:/mnt/logs
+        - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
 
   elasticsearch:
 #    build: .
@@ -52,15 +60,10 @@ services:
     network_mode: "host"
     logging:
         driver: "${LOGGING_DRIVER:-json-file}"
-
-#    hostname: "kibana"
 #    volumes:
 #      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 #       - /media/pi/ext250/elastic_data:/usr/share/elasticsearch/data 
     ports:
       - "5601:5601"
-#    logging:
-#        driver: "json-file"
     environment:
         ELASTICSEARCH_URL: "http://localhost:9200" 
-#        ES_JAVA_OPTS: "-Xmx256m -Xms256m"
