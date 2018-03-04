@@ -6,6 +6,8 @@
    path.config: "/usr/share/logstash/pipeline/xml_log/*.logstash.conf"
  - pipeline.id: security
    path.config: "/usr/share/logstash/pipeline/security/*.logstash.conf"
+ - pipeline.id: r24
+   path.config: "/usr/share/logstash/pipeline/r24/*.logstash.conf"
 
 # List of pipelines to be loaded by Logstash
 #
