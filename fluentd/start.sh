@@ -1,4 +1,5 @@
 #!/bin/sh
 set -e
-
-docker-compose up -d
+LOGGING_DRIVER=fluentd
+export LOGGING_DRIVER
+docker-compose up -d 
