@@ -1,6 +1,16 @@
 version: '3'
 
 services:
+  fluentd:
+    build: fluentd/
+    network_mode: "host"
+    container_name: "log_fluentd"
+    logging:
+      driver: "${LOGGING_DRIVER:-json-file}"
+    volumes:
+      - "/media/pi/ext250/logs/:/log/"
+      - "./fluentd/fluent.conf:/fluentd/etc/fluent.conf"
+
   logstash:
     build: ./logstash
     #image: docker.elastic.co/logstash/logstash:6.2.2
