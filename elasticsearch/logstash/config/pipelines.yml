@@ -1,8 +1,9 @@
  - pipeline.id: docker_logs
-   path.config: "/usr/share/logstash/pipeline/docker_logs/*.conf"
+   path.config: "/usr/share/logstash/pipeline/docker_logs/*logstash.conf"
  - pipeline.id: nfc
-   path.config: "/usr/share/logstash/pipeline/nfc/*.conf"
-
+   path.config: "/usr/share/logstash/pipeline/nfc/*.logstash.conf"
+ - pipeline.id: xml_log
+   path.config: "/usr/share/logstash/pipeline/xml_log/*.logstash.conf"
 
 # List of pipelines to be loaded by Logstash
 #
