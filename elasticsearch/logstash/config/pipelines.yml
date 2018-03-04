@@ -4,6 +4,8 @@
    path.config: "/usr/share/logstash/pipeline/nfc/*.logstash.conf"
  - pipeline.id: xml_log
    path.config: "/usr/share/logstash/pipeline/xml_log/*.logstash.conf"
+ - pipeline.id: security
+   path.config: "/usr/share/logstash/pipeline/security/*.logstash.conf"
 
 # List of pipelines to be loaded by Logstash
 #
