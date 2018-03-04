@@ -9,10 +9,12 @@ services:
     logging:
         driver: "${LOGGING_DRIVER:-json-file}"
     volumes:
-        - ./logstash/config:/usr/share/logstash/config
+        - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+        - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
         - ./logstash/pipeline:/usr/share/logstash/pipeline
     environment:
         XPACK_MONITORING_ENABLED: "true"
+        HTTP_HOST: "0.0.0.0"
 #        xpack_management_enabled: "true"
 #        xpack_management_elasticsearch_url: "http://localhost:9200/"
 #        xpack_management_logstash_poll_interval: "5s"
