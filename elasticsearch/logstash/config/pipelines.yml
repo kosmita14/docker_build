@@ -1,13 +1,15 @@
  - pipeline.id: docker_logs
    path.config: "/usr/share/logstash/pipeline/docker_logs/*logstash.conf"
- - pipeline.id: nfc
-   path.config: "/usr/share/logstash/pipeline/nfc/*.logstash.conf"
- - pipeline.id: xml_log
-   path.config: "/usr/share/logstash/pipeline/xml_log/*.logstash.conf"
- - pipeline.id: security
-   path.config: "/usr/share/logstash/pipeline/security/*.logstash.conf"
- - pipeline.id: r24
-   path.config: "/usr/share/logstash/pipeline/r24/*.logstash.conf"
+ #- pipeline.id: nfc
+ #  path.config: "/usr/share/logstash/pipeline/nfc/*.logstash.conf"
+ #- pipeline.id: xml_log
+ #  path.config: "/usr/share/logstash/pipeline/xml_log/*.logstash.conf"
+ #- pipeline.id: security
+ #  path.config: "/usr/share/logstash/pipeline/security/*.logstash.conf"
+ #- pipeline.id: r24
+ #  path.config: "/usr/share/logstash/pipeline/r24/*.logstash.conf"
+ - pipeline.id: sdo2json
+   path.config: "/usr/share/logstash/pipeline/sdo2json/*.logstash.conf"
 
 # List of pipelines to be loaded by Logstash
 #
