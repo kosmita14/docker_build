@@ -14,3 +14,4 @@ services:
         volumes:
             - "/media/pi/ext250/fluentd_data:/fluentd/log"
             - "./fluent.conf:/fluentd/etc/fluent.conf"
+            - /etc/localtime:/etc/localtime:ro
