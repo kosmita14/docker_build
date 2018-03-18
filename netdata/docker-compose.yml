@@ -11,6 +11,7 @@ services:
         - /sys:/host/sys:ro
         - /var/run/docker.sock:/var/run/docker.sock
         - ./netdata.conf:/etc/netdata/netdata.conf
+        - ./health_alarm_notify.conf:/etc/netdata/health_alarm_notify.conf
     network_mode: "host"
     logging:
             driver: "${LOGGING_DRIVER:-json-file}"
