@@ -1,2 +1,6 @@
+config:
+  reload:
+    automatic: true
+config.reload.automatic: true
 http.host: 0.0.0.0
 xpack.monitoring.enabled: true
