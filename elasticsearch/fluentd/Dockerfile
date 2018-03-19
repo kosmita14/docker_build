@@ -7,6 +7,7 @@ RUN apk add --update --virtual .build-deps \
         sudo build-base ruby-dev \
  && sudo gem install \
         fluent-plugin-rewrite-tag-filter fluent-plugin-amqp fluent-plugin-record-modifier \
+        fluent-plugin-concat \
  && sudo gem sources --clear-all \
  && apk del .build-deps \
  && rm -rf /var/cache/apk/* \
