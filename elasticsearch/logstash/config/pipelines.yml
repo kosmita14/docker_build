@@ -8,8 +8,10 @@
  #  path.config: "/usr/share/logstash/pipeline/security/*.logstash.conf"
  #- pipeline.id: r24
  #  path.config: "/usr/share/logstash/pipeline/r24/*.logstash.conf"
- - pipeline.id: sdo2json
-   path.config: "/usr/share/logstash/pipeline/sdo2json/*.logstash.conf"
+ #- pipeline.id: sdo2json
+ #  path.config: "/usr/share/logstash/pipeline/sdo2json/*.logstash.conf"
+ - pipeline.id: microservice_logs
+   path.config: "/usr/share/logstash/pipeline/microservice_logs/*.logstash.conf"
 
 # List of pipelines to be loaded by Logstash
 #
