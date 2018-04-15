@@ -16,6 +16,8 @@ services:
         volumes:
             - "./influxdb.conf:/etc/influxdb/influxdb.conf:ro"
             - "/media/pi/ext250/influxdb_data:/var/lib/influxdb"
+            - "/etc/timezone:/etc/timezone:ro"
+            - "/etc/localtime:/etc/localtime:ro"
 
 
     telegraf:
@@ -32,6 +34,10 @@ services:
         volumes:
             - "./telegraf.conf:/etc/telegraf/telegraf.conf:ro"
             - "/var/run/docker.sock:/var/run/docker.sock"
+            - "/etc/timezone:/etc/timezone:ro"
+            - "/etc/localtime:/etc/localtime:ro"
+        extra_hosts:
+            - "malina.local:192.168.14.12"
 
 
     kapacitor:
@@ -47,6 +53,8 @@ services:
         volumes:
             - "./kapacitor.conf:/etc/kapacitor/kapacitor.conf:ro"
             - "/media/pi/ext250/kapacitor_data:/var/lib/kapacitor"
+            - "/etc/timezone:/etc/timezone:ro"
+            - "/etc/localtime:/etc/localtime:ro"
 
     chronograf:
         image: "chronograf"
@@ -61,3 +69,5 @@ services:
             - "8888:8888"
         volumes:
             - "/media/pi/ext250/chronograf_data:/var/lib/chronograf"
+            - "/etc/timezone:/etc/timezone:ro"
+            - "/etc/localtime:/etc/localtime:ro"
