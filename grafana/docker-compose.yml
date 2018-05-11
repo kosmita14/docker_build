@@ -2,14 +2,12 @@ version: '3'
 services:
   grafana:
     image: grafana/grafana
-#    depends_on:
-#      - prometheus
+    container_name: "grafana"
     network_mode: "host"
+    logging:
+      driver: "${LOGGING_DRIVER:-json-file}"
     ports:
       - 3000:3000
     volumes:
     - /media/pi/ext250/graphana_data:/var/lib/grafana
-
-
-
-
+    user: "104"
