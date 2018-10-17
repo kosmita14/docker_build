@@ -9,5 +9,5 @@ services:
     ports:
       - 3000:3000
     volumes:
-    - /media/pi/ext250/graphana_data:/var/lib/grafana
-    user: "104"
+      - ./grafana.db:/var/lib/grafana/grafana.db
+#    user: "104"

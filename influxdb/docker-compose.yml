@@ -15,7 +15,7 @@ services:
             - "4242:4242"
         volumes:
             - "./influxdb.conf:/etc/influxdb/influxdb.conf:ro"
-            - "/media/pi/ext250/influxdb_data:/var/lib/influxdb"
+            - "./influxdb_data:/var/lib/influxdb"
             - "/etc/timezone:/etc/timezone:ro"
             - "/etc/localtime:/etc/localtime:ro"
 
@@ -37,7 +37,7 @@ services:
             - "/etc/timezone:/etc/timezone:ro"
             - "/etc/localtime:/etc/localtime:ro"
         extra_hosts:
-            - "malina.local:192.168.14.12"
+            - "malina.local:192.168.14.13"
 
 
     kapacitor:
@@ -52,7 +52,7 @@ services:
             - "9092:9092"
         volumes:
             - "./kapacitor.conf:/etc/kapacitor/kapacitor.conf:ro"
-            - "/media/pi/ext250/kapacitor_data:/var/lib/kapacitor"
+ #           - "/media/pi/ext250/kapacitor_data:/var/lib/kapacitor"
             - "/etc/timezone:/etc/timezone:ro"
             - "/etc/localtime:/etc/localtime:ro"
 
@@ -68,6 +68,6 @@ services:
         ports:
             - "8888:8888"
         volumes:
-            - "/media/pi/ext250/chronograf_data:/var/lib/chronograf"
+#            - "/media/pi/ext250/chronograf_data:/var/lib/chronograf"
             - "/etc/timezone:/etc/timezone:ro"
             - "/etc/localtime:/etc/localtime:ro"

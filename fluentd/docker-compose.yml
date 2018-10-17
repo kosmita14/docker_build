@@ -12,6 +12,6 @@ services:
             - "24231:24231"
             - "9292:9292"
         volumes:
-            - "/media/pi/ext250/fluentd_data:/fluentd/log"
+#            - "/media/pi/ext250/fluentd_data:/fluentd/log"
             - "./fluent.conf:/fluentd/etc/fluent.conf"
             - /etc/localtime:/etc/localtime:ro

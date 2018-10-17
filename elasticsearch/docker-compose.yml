@@ -7,17 +7,21 @@ services:
     container_name: "log_fluentd"
     logging:
       driver: "${LOGGING_DRIVER:-json-file}"
+      options:
+        fluentd-address: "localhost:24225"
     volumes:
       - "/media/pi/ext250/logs/:/log/"
       - "./fluentd/fluent.conf:/fluentd/etc/fluent.conf"
       - /etc/localtime:/etc/localtime:ro
   logstash:
     build: ./logstash
-    #image: docker.elastic.co/logstash/logstash:6.2.3
+    #image: docker.elastic.co/logstash/logstash:6.4.0
     container_name: "logstash"
     network_mode: "host"
     logging:
         driver: "${LOGGING_DRIVER:-json-file}"
+        options:
+          fluentd-address: "localhost:24225"
     volumes:
         - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
         - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
@@ -38,11 +42,13 @@ services:
 #     - "9600:9600"
 
   filebeat:
-    image: docker.elastic.co/beats/filebeat:6.2.4
+    image: docker.elastic.co/beats/filebeat:6.4.2
     container_name: "filebeat"
     network_mode: "host"
     logging:
         driver: "${LOGGING_DRIVER:-json-file}"  
+        options:
+          fluentd-address: "localhost:24225"
     volumes:
         - /media/pi/ext250/logs/:/mnt/logs
         - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
@@ -50,7 +56,7 @@ services:
  
   elasticsearch:
 #    build: .
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
 #    volumes:
 #      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 #       - /media/pi/ext250/elastic_data:/usr/share/elasticsearch/data 
@@ -58,6 +64,8 @@ services:
     network_mode: "host"
     logging:
         driver: "${LOGGING_DRIVER:-json-file}"
+        options:
+          fluentd-address: "localhost:24225"
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -68,11 +76,13 @@ services:
 
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:6.2.4
+    image: docker.elastic.co/kibana/kibana:6.4.2
     container_name: "kibana"
     network_mode: "host"
     logging:
         driver: "${LOGGING_DRIVER:-json-file}"
+        options:
+          fluentd-address: "localhost:24225"
     volumes:
         - /etc/localtime:/etc/localtime:ro
 #      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
